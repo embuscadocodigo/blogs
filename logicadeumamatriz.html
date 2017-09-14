@@ -1,0 +1,353 @@
+<!--Padrão 31/08/2016 embuscadocodigo.com v0.2-->
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+            <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<!--titulos-->
+		<title>Qual a lógica de uma matriz em C/C++?</title>
+            <meta name="twitter:title" content="Qual a lógica de uma matriz em C/C++?">
+<!--descrição-->
+            <meta property="og:description" content=""/>
+            <meta name="twitter:description" content="">
+<!--Palavras chave-->
+            <meta name="keywords" content="lógica, logic, matriz, Linguagem C, C++, C/C++">
+<!--Meta Tags globais-->
+            <meta property="article:author" content='https://www.facebook.com/embuscadocodigo' />
+            <meta property="og:url" content="http://blogs.embuscadocodigo.com/logicadeumamatriz.html"/>
+            <meta property="og:site_name" content="http://embuscadocodigo.com">
+            <meta property="og:type" content="article">
+            <meta proterty="og:locale" content="pt_BR">
+<!--Favicon-->
+		<link rel="icon" href="http://embuscadocodigo.com/embuscadocodigo.ico">
+<!--imagens de compartilhamento-->
+      <!--Facebook-->
+            <meta property="og:image:type" content="image/png">
+            <meta property="og:image" content="http://blogs.embuscadocodigo.com/img/logicamatriz.png" />
+            <meta property="og:image:width" content="1280">
+            <meta property="og:image:height" content="720">
+      <!--Twitter-->
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:image" content="http://blogs.embuscadocodigo.com/img/logicamatriz.png">
+<!--cada uma pode ser diferente-->
+<!--CSS-->
+		<link rel="stylesheet" href="../css/reset.css">
+		<link rel="stylesheet" href="../css/roca.css">
+		<link rel="stylesheet" href="../css/padrao.css">
+		<link rel="stylesheet" href="../css/erro.css">
+		<link rel="stylesheet" href="../css/codigos.css">
+		<link rel="stylesheet" href="../css/fonte.css">
+<!--Meta Tags exclusivas para Redes Sociais-->
+            <meta property="fb:app_id" content="966242223397117">
+            <meta name="twitter:site" content="@embuscadocodigo">
+            <meta name="twitter:creator" content="@embuscadocodigo">
+	</head>
+	<body>
+		<header>
+			<nav class="cabecalho">
+				<ul>
+					<li><a href="http://embuscadocodigo.com/index.html">home</a></li>
+					<li>|</li>
+					<li><a href="http://blogs.embuscadocodigo.com/">Blogs</a></li>
+					<li>|</li>
+					<li><a href="http://embuscadocodigo.com/sobre.html">Sobre</a></li>
+					<li>|</li>
+					<li><a href="http://embuscadocodigo.com/codigos.html">Códigos</a></li>
+				</ul>
+			</nav>
+		</header>
+<body>
+<div class="paragrafoscodigos codigos">
+	<section class="codigos">
+				      <h1>Qual a lógica de uma matriz em C/C++?</h1></br>
+				      <p>Quando declaramos uma matriz em Linguagem C ou C++ utilizamos a seguinte sintaxe:</p>
+            <nav class="fonte">
+int matriz [1][2];
+			</nav>
+</br>
+				      <p>Isso falando de uma matriz de números inteiros, o primeiro valor [1] é o índice 1, ele representa o eixo Y, ou em outras palavras, as linhas. Mas vou entrar no contexto de “linhas” mais adiante, no caso de uma matriz de números inteiros é legal sabermos que o primeiro índice é o eixo Y.</p>
+</br>		
+		      <p>Se o primeiro índice é o eixo Y, o segundo é o eixo X. Então já que sabemos disso vamos pegar um exemplo um pouco maior.</p>
+            <nav class="fonte">
+				      int matriz [3][3];
+			</nav>
+</br>
+				      <p>No exemplo acima nossa matriz tem três linhas e três colunas, tendo nove valores. Para entendermos o porque essa matriz tem nove valores, vamos utilizar um exemplo, use o código fonte a seguir:</p>
+            <nav class="fonte">
+#include &lt;conio.h&gt;<br />
+#include &lt;stdio.h&gt;<br />
+<br />
+int main (void) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp; int matriz [3][3];<br />
+&nbsp;&nbsp;&nbsp;&nbsp; int y,x;<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp; for (y=0;y&lt;3;y++)<br />
+&nbsp;&nbsp;&nbsp;&nbsp; for (x=0;x&lt;3;x++) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf ("\nDigite (%d,%d):", y, x);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; scanf("%d", &amp;matriz[y][x]);<br />
+&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp;&nbsp;&nbsp; for (y=0;y&lt;3;y++)<br />
+&nbsp;&nbsp;&nbsp;&nbsp; for (x=0;x&lt;3;x++) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("Na posicao (%d,%d), o valor eh %d.\n", y, x, matriz[y][x]);<br />
+&nbsp;&nbsp;&nbsp;&nbsp; }<br />
+<br />
+getch();<br />
+return (0);<br />
+} <br />
+</nav>
+</br>
+				      <p>Agora vamos entender esse código fonte linha por linha (ou quase isso)?</p>
+            <nav class="fonte">
+#include &lt;conio.h&gt;<br />
+#include &lt;stdio.h&gt;<br />
+			</nav>
+</br>
+				      <p>As duas primeiras são as bibliotecas necessárias para que o nosso código funcione.</p>
+            <nav class="fonte">
+int main (void) {
+			</nav>
+</br>
+				      <p>Incluímos a função main com um void, isso porque o “resultado” pode ser vazio, por isso o uso do void.</p>
+            <nav class="fonte">
+int matriz [3][3];<br />
+int y,x;<br />
+			</nav>
+</br>
+				      <p>Criamos uma matriz com três posições no eixo Y e três no eixo X, três linhas e três colunas. E criamos duas variáveis “y” e “x” pois precisaremos delas para declarar os valores da nossa matriz.</p>
+            <nav class="fonte">
+ for (y=0;y&lt;3;y++)<br />
+ for (x=0;x&lt;3;x++) {<br /></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf ("\nDigite (%d,%d):", y, x);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; scanf("%d", &amp;matriz[y][x]);<br />
+ }<br />
+			</nav>
+</br>
+				      <p>Criamos dois laços (for) logo em seguida utilizando a dupla printf e scanf dentro dessa repetição. Mas preciso entender muito bem o que está acontecendo aí.</p>
+</br>
+				      <p>O printf mostra algo na tela certo? E os nossos dois “for” diz que tanto a variável Y quanto a variável X tem 3 posições.</p>
+</br>
+				      <p>Já o scanf também irá se repetir o número de vezes que o nosso laço (for) “disser”. Mas como assim?</p>
+</br>
+				      <p>Temos a variável Y com 3 posições e a variável X com mais três, elas não se somam. O eixo Y é o número de linhas, então temos três linhas, e cada linha tem três colunas tendo ao total 9 posições em nossa matriz.</p>
+            <nav class="fonte">
+for (y=0;y&lt;3;y++)<br />
+for (x=0;x&lt;3;x++) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("Na posicao (%d,%d), o valor eh %d.\n", y, x, matriz[y][x]);<br />
+}
+			</nav>
+</br>
+				      <p>E o penúltimo trecho do nosso código fonte “roda” logo depois que o usuário digitar os nove valores da nossa matriz. O laço (for) tem a mesma lógica que a repetição anterior e o interessante é a posição aparecer junto com o valor que está nesta posição.</p>
+            <nav class="fonte">
+getch();<br />
+return (0);<br />
+} 
+			</nav>
+</br>
+				      <p>E por ultimo encerramos nosso programa.</p>
+</br>
+				      <p>Mas para explicar o que realmente é uma matriz achei interessante fazer uma tabela, se voltarmos um pouco e relembrarmos vetor em C saberemos que a primeira posição de um vetor é 0 (zero), o mesmo acontece com matrizes em C. O primeiro valor tanto do eixo Y, quanto do eixo X estarão na posição zero.</p>
+</br>
+				      <p>Na imagem abaixo utilizei como exemplo que a primeira linha (a de cima) é a de posição zero, por lógica a de baixo é a linha de posição 1 (segunda linha) e a terceira linha é a de posição 2.</p>
+</br>
+                        <figure>
+                        <img class="imgartigo" src="img/01.png" width="30%" alt="Matriz em C/C++"></img>
+                        <figcaption class="capim">Matriz em C/C++</figcaption>
+                        </figure>
+</br>
+				      <p>Utilizando o código fonte acima insira os números de 1 até 9, e veja que conseguimos inserir os valores da nossa matriz, cada um em sua devida posição, veja na imagem a seguir.</p>
+</br>
+                        <figure>
+                        <img class="imgartigo" src="img/02.png" width="30%" alt="Valores de uma matriz em C/C++"></img>
+                        <figcaption class="capim">Valores de uma matriz em C/C++</figcaption>
+                        </figure>
+</br>
+				      <p>Já vimos uma matriz de números inteiros certo? Agora veremos uma matriz de char. </p>
+</br>
+				      <p>Mas precisamos mudar o nosso exemplo, alguns parágrafos acima eu “falei” que o eixo Y poderia ser chamado de linha. Então se o eixo Y são linhas o eixo X são colunas. Olhe para a ultima imagem e veja que nós já vimos isso, eu só decidi não citar isso antes.</p>
+</br>
+				      <p>Mas acabei de falar que precisaria mudar o nosso exemplo, e aqui está ele.</p>
+            <nav class="fonte">
+char matriztres [3][10];
+			</nav>
+</br>
+				      <p>Neste caso nós ainda temos três posições no eixo Y (3 linhas), mas o número de posições do eixo X (colunas) passou para 10.</p>
+</br>
+                        <figure>
+                        <img class="imgartigo" src="img/03.png" width="75%" alt="Matriz com 3 linhas e 10 colunas"></img>
+                        <figcaption class="capim">Matriz com 3 linhas e 10 colunas</figcaption>
+                        </figure>
+</br>
+				      <p>Mas antes de mostrarmos um exemplo “utilizando” a imagem acima precisamos começar pela base/inicio de uma matriz de char.</p>
+            <nav class="fonte">
+char matriz [10] = {'s','e','u',' ','n','o','m','e'};<br />
+printf("Primeiro jeito: %s\n\n", matriz);<br />
+			</nav>
+</br>
+				      <p>Este é o primeiro exemplo de uma matriz de feito com char que demonstro, mas existe outro modo de declarar a mesma matriz.</p>
+            <nav class="fonte">
+char matrizdois [10] = "seu nome";<br />
+printf("Segundo jeito: %s\n\n", matrizdois);<br />
+			</nav>
+</br>
+				      <p>Nos dois exemplos anteriores poderíamos inserir uma matriz de até 9 posições, pois a ultima para evitar bugs tem que estar vazia. Nos dois exemplos anteriores o valor da minha matriz na horizontal (em número de caracteres)&nbsp; é 8. Essa matriz poderia ser descrita na imagem abaixo.</p>
+</br>
+                        <figure>
+                        <img class="imgartigo" src="img/04.png" width="75%" alt="Exemplo de matriz em C/C++"></img>
+                        <figcaption class="capim">Exemplo de matriz em C/C++</figcaption>
+                        </figure>
+</br>
+				      <p>Agora que nós já sabemos como criar uma matriz de apenas uma linha quando essa matriz é de char. Vamos criar uma matriz com mais de uma linha. </p>
+            <nav class="fonte">
+char matriztres [3][10] = {"Lucas","Silva","e Silva"};
+			</nav>
+</br>
+				      <p>OBS: Por favor realize este exemplo em seu computador só que, com o seu nome (ficará mais fácil de lembrar).</p>
+</br>
+				      <p>Agora deixo aqui o código fonte do vídeo número 24 do nosso tutorial de C/C++, repare e veja que este código fonte tem o que acabei de explicar, faça-o em seu computador utilizando seu nome.</p>
+            <nav class="fonte">
+#include &lt;conio.h&gt;<br />
+#include &lt;stdio.h&gt;<br />
+<br />
+int main () {<br />
+&nbsp;&nbsp;&nbsp; char matriz [10] = {'s','e','u',' ','n','o','m','e'};<br />
+&nbsp;&nbsp;&nbsp; printf("Primeiro jeito: %s\n\n", matriz);<br />
+&nbsp; <br />
+&nbsp;&nbsp;&nbsp; char matrizdois [10] = "seu nome";<br />
+&nbsp;&nbsp;&nbsp; printf("Segundo jeito: %s\n\n", matrizdois);<br />
+&nbsp; <br />
+&nbsp;&nbsp;&nbsp; char matriztres [3][10] = {"seu","nome","aqui"};<br />
+&nbsp;&nbsp;&nbsp; int variavel;<br />
+&nbsp;&nbsp;&nbsp; for (variavel=0;variavel&lt;3;variavel++) {<br />
+&nbsp;&nbsp;&nbsp; printf("%s ", matriztres[variavel]);<br />
+&nbsp;&nbsp;&nbsp; }<br />
+&nbsp; <br />
+getch();<br />
+return (0);<br />
+}<br />
+			</nav>
+</br>
+				      <p>A variável chamada “variável” tem a mesma função das variáveis X e Y do exemplo anterior, se ainda ficou com alguma duvida a respeito de matriz de char em C/C++? Assista esse vídeo [eu prefiro que você assista ao vídeo (também)].</p>
+</br>
+      <p class="cabe">Assista ao vídeo: </p>
+      <nav class="video">
+<iframe width="90%" height="500px" src="https://www.youtube.com/embed/dmy1GNrHiUg" frameborder="0" allowfullscreen></iframe>
+      </nav>
+</br>
+				      <p>Agora precisamos “reaprender” outra coisa.</p>
+</br>
+				      <p>Precisamos reaprender como fazer para que o usuário digite os valores de uma matriz de char.</p>
+</br>
+				      <p>No vídeo número 25 do tutorial de C/C++ eu utilizo um exemplo que no eixo X se tem 100 posições. Não vou desenhar uma imagem com 5 linhas e 100 colunas.</p>
+            <nav class="fonte">
+char matriz [5][100];
+			</nav>
+</br>
+				      <p>Seguindo o que nós já sabemos, no exemplo acima nós criamos uma matriz de char cujo o usuário ira digitar os valores da matriz, igual já fizemos com uma matriz do tipo inteiro.</p>
+            <nav class="fonte">
+int variavel;
+			</nav>
+</br>
+				      <p>Precisaremos criar uma variável para inserirmos em nossa repetição</p>
+            <nav class="fonte">
+for (variavel=0; variavel&lt;5; variavel++) {<br />
+</br>
+&nbsp;&nbsp;&nbsp; printf ("\n\nDigite um valor: ");<br />
+&nbsp;&nbsp;&nbsp; gets(matriz[variavel]);<br />
+}<br />
+			</nav>
+</br>
+				      <p>Neste caso (matriz de char) utilizamos apenas um laço (for), e se reparar não utilizei scanf e sim gets para “chamar” a variável.</p>
+            <nav class="fonte">
+printf ("\n\nA matriz que você digitou eh:\n");<br />
+<br />
+for (variavel=0; variavel&lt;5; variavel++) {<br />
+printf("%s\n", matriz[variavel]);<br />
+}<br />
+			</nav>
+</br>
+				      <p>Enfatizando agora que neste exemplo inseri um prnitf fora do segundo laço (for), só para ele não se repetir e neste momento o usuário já digitou os valores da nossa matriz em C/C++.</p>
+</br>
+				      <p>OBS: Isso mesmo, esse código fonte funciona tanto em Linguagem C tanto em C++.</p>
+            <nav class="fonte">
+getch();<br />
+return(0);<br />
+} <br />
+			</nav>
+</br>
+				      <p>E terminando o programa com getch e return (0).</p>
+</br>
+				      <p>Neste exemplo não citei a função main e nem as bibliotecas, mas caso tenha ficado alguma duvida segue o código fonte completo e sem quebras.</p>
+            <nav class="fonte">
+
+#include &lt;conio.h&gt;<br />
+#include &lt;stdio.h&gt;<br />
+<br />
+int main () {<br />
+&nbsp;&nbsp;&nbsp; char matriz [5][100];<br />
+&nbsp;&nbsp;&nbsp; int variavel;<br />
+&nbsp;&nbsp; <br />
+&nbsp;&nbsp;&nbsp; for (variavel=0; variavel&lt;5; variavel++) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf ("\n\nDigite um valor: ");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gets(matriz[variavel]);<br />
+&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp; <br />
+&nbsp;&nbsp;&nbsp; printf ("\n\nA matriz que você digitou eh:\n");<br />
+&nbsp;&nbsp; <br />
+&nbsp;&nbsp;&nbsp; for (variavel=0; variavel&lt;5; variavel++) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("%s\n", matriz[variavel]);<br />
+&nbsp;&nbsp;&nbsp; }<br />
+&nbsp;&nbsp; <br />
+getch();<br />
+return(0);<br />
+}<br />
+			</nav>
+</br>
+                        <figure>
+                        <img class="imgartigo" src="img/05.png" width="75%" alt="Matriz com 3 linhas e 10 colunas"></img>
+                        <figcaption class="capim">Matriz com 3 linhas e 10 colunas</figcaption>
+                        </figure>
+</br>
+				      <p>Faça esse exercício com o seu nome, ficou com alguma dúvida? Assista ao vídeo.</p>
+</br>
+      <p class="cabe">Assista ao vídeo: </p>
+      <nav class="video">
+<iframe width="90%" height="500px" src="https://www.youtube.com/embed/cb1porXMV2o" frameborder="0" allowfullscreen></iframe>
+      </nav>
+</br>
+				      <p>Escrevi esse artigo pois na hora de explicar matriz de número inteiro inverti Y e X no vídeo número 23 do tutorial/curso de C/C++ (YouTube). Esse vídeo foi excluído e este artigo une os três vídeos da mini série de matriz em C (agora dois vídeos). Espero que seja útil e, se te ajudou comenta aí, mostra ele (este artigo) para o seu amigo que não  consegue fazer uma matriz.</p>
+</br>
+				      <p>OBS: Antes de ser excluído o vídeo número 23 tinha sido visto por apenas 77 pessoas e foi uma pergunta no vídeo 25 que fez eu rever os três vídeos. Se você foi uma dessas 77 pessoas pessoa minhas sinceras desculpas, esse artigo que substitui esse vídeo foi feito com muito carinho.</p>
+</br>
+				      <p>Ainda não configurei o espaço de comentários dentro do site (embuscadocodigo.com), mas e aí, o que achou deste artigo? Vai lá na nossa página no Facebook ou acesse o nosso canal do YouTube (pelos vídeos deste link mesmo), as vezes publico coisas relacionadas ao site no meu inta, mas é meu insta e não do site, por isso você não encontra esse link aqui.</p>
+</br>
+				      <p>Espero que este "artigo"tenha sido útil, até mais.</p>
+	</section>
+</div></br>
+<section class="propagando">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- em busca do codigo 01 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-5020252132627432"
+     data-ad-slot="7324870979"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</section>
+		<footer id="rodape">
+
+			<img src="../css/img/001.png">
+			Desde 2015 Em Busca do Código
+			<ul class="redes">
+				<li><a href="https://www.facebook.com/embuscadocodigo" target="_blank"><img src="../css/img/007.png"></a></li>
+				<li><a href="https://plus.google.com/115289918651298518386" target="_blank"><img src="../css/img/008.png"></a></li>
+				<li><a href="https://www.youtube.com/channel/UC6EgJeCFC-P96Y0Gvla0Z3w"target="_blank"><img src="../css/img/009.png"></a></li>
+			</ul>
+		</footer>
+<p class="antibloq">Se estiver utilizando bloqueador de propaganda, por favor, coloque este site na lista branca (isto sempre será apenas um pedido). Obrigado pela escolha.</p>
+		<section class="prose">
+		</section>
+	</body>
+</html>
+

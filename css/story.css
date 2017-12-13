@@ -1,0 +1,149 @@
+.propaganda {
+    width: 100%;
+    min-height: 200px;
+    text-align: center;
+    top: 98%;
+    position: absolute;
+    font-size: 0.5em;
+    background-color: rgb(0, 0, 0, 0);
+    z-index: 2;
+}
+.story {
+    width: 100vw;
+    height: 1050px;
+    background: #6C7A89;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+.centro {
+    background-color: #000;
+    z-index: 2;
+    width: 100vw;
+    height: 1050px;
+}
+.linha {
+    width: 2%;
+    height: 1050px;
+    z-index: 2;
+    background-color: #6C7A89;
+    left: 48%;
+    position: absolute;
+}
+.titulo {
+    font-size: 1.3em;
+    margin: 1vh;
+}
+.infot {
+    width: 100%;
+    background-color: #c7c5c5;
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+}
+.infot h1 {
+    font-size: 1.5em;
+    margin: 1vh;
+}
+    .info1, .descricao1 {
+        top: 7%;
+    }
+    .info2, .descricao2 {
+        top: 14%;
+    }
+    .info3, .descricao3  {
+        top: 21%;
+    }
+    .info4, .descricao4 {
+        top: 28%;
+    }
+    .info5, .descricao5 {
+        top: 35%;
+    }
+    .info6, .descricao6  {
+        top: 42%;
+    }
+    .info7, .descricao7 {
+        top: 49%;
+    }
+    .info8, .descricao8 {
+        top: 56%;
+    }
+    .info9, .descricao9 {
+        top: 63%;
+    }
+    .info10, .descricao10 {
+        top: 70%;
+    }
+    .info11, .descricao11 {
+        top: 77%;
+    }
+.info12 {
+    top: 84%;
+}
+.info13 {
+    top: 91%;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+.descricao1, .descricao2, .descricao3, .descricao4, .descricao5, .descricao6, .descricao7, .descricao8, .descricao9, .descricao10, .descricao11 {
+    width: 80%;
+    background-color: #c7c5c5;
+    position: absolute;
+    left: 10%;
+    z-index: 3;
+    border-radius: 1em;
+    text-align: justify;
+    display: none;
+}
+.descricao1 p, .descricao2 p, .descricao3 p, .descricao4 p, .descricao5 p, .descricao6 p, .descricao7 p, .descricao8 p, .descricao9 p, .descricao10 p, .descricao11 p {
+    margin: 2em 1em 1em 1em;
+    font-size: 1.5em;
+}
+.info13, .info12, .info11, .info10, .info9, .info8, .info9, .info8, .info7, .info6, .info5, .info4, .info3, .info2, .info1 {
+    width: 80%;
+    background-color: #c7c5c5;
+    position: absolute;
+    left: 10%;
+    z-index: 4;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+}
+@media only screen and (min-width: 1000px) {
+    .propaganda {
+        width: 1000px;
+    }
+    .story {
+        height: 850px;
+    }
+    .centro {
+        width: 1000px;
+        height: 850px;
+    }
+    .linha {
+        left: 24%;
+        height: 850px;
+    }
+    .infot {
+        width: 30%;
+    }
+    .descricao1, .descricao2, .descricao3, .descricao4, .descricao5, .descricao6, .descricao7, .descricao8, .descricao9, .descricao10, .descricao11 {
+        max-width: 500px;
+        left: 20%;
+    }
+    .info13, .info12, .info11, .info10, .info9, .info8, .info9, .info8, .info7, .info6, .info5, .info4, .info3, .info2, .info1 {
+        width: 20%;
+        left: 20%;
+    }
+}
